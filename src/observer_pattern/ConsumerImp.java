@@ -1,8 +1,8 @@
 package observer_pattern;
-public class ConsumerImp implements Consumer{
+public class ConsumerImp<T> implements Consumer<T>{
 
     @Override
-    public void consume(Event event) {
-        System.out.println("message consumed:," + event.getMessage());   
+    public void consume(Event<T> event) {
+        System.out.println("message consumed:," + event.getData());   
     }
 }

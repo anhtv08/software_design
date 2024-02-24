@@ -4,6 +4,6 @@ package observer_pattern;
  * design principle: program to interface
  */
 
-public interface Consumer {
-    public void consume(Event event);  
+public interface Consumer<T> {
+    public void consume(Event<T> event);  
 } 

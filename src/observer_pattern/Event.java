@@ -1,14 +1,17 @@
 package observer_pattern;
-public class Event {
-    String message;
+/*
+  event data to encapsulate the state change
+*/
+public class Event<T> {
 
-    public Event(String message) {
-        this.message = message;
+    T data;
+
+    public Event(T data) {
+        this.data = data;
     }
 
 
-    public String getMessage() {
-        return message;
+    public T getData() {
+        return data;
     }
-     
-}
+} 

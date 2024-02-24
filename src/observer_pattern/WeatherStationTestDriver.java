@@ -13,9 +13,9 @@ package observer_pattern;
 public class WeatherStationTestDriver {
     public static void main(String[] args) throws Exception {
         
-        WeatherStationSubject nyStation = new NYWeatherStation();
+        WeatherStationSubject<String> nyStation = new NYWeatherStation();
         
-        Consumer subcriber = new ConsumerImp();
+        Consumer<String> subcriber = new ConsumerImp();
         nyStation.addConsumer(
             subcriber
 

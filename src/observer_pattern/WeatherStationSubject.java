@@ -4,8 +4,8 @@ package observer_pattern;
  * 
  * 
  */
-public interface WeatherStationSubject {
-     public void addConsumer(Consumer subcriber);
-     public void removeConsumer(Consumer subcriber);
+public interface WeatherStationSubject<T> {
+     public void addConsumer(Consumer<T> subcriber);
+     public void removeConsumer(Consumer<T> subcriber);
      public void notifyConsumers();
 }
