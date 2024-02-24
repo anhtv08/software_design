@@ -16,12 +16,12 @@ It will concern the most popular software pattern design, which catagorised in 3
 - strategy pattern
 - method template
 
-## access control pattern
-- proxy pattern
+## integration pattern
+- proxy
 - Facade
-
-## decoupling pub/sub between system
-- observer pattern
+- command
+- adapter
+- observer
 
 ## Folder Structure
 
