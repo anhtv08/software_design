@@ -1,5 +1,11 @@
 package command_pattern;
-
+/*
+ * Remote
+ * 1. set command to be execute
+ * 2. command carry the task
+ * 3. and commander will exectue the task
+ * 
+ */
 public class RemoteControllerClient {
     Command command ;
     
