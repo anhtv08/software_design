@@ -1,21 +1,27 @@
 package method_factory;
 
-public class TeslaOrderManagement {
+public abstract class TeslaOrderManagement {
     
-    TeslaFactory teslaFactory;
+    //TeslaFactory teslaFactory;
     
-    public TeslaOrderManagement(TeslaFactory teslaFactory) {
-        this.teslaFactory = teslaFactory;
-    }
+    // public TeslaOrderManagement(TeslaFactory teslaFactory) {
+    //     this.teslaFactory = teslaFactory;
+    // }
+
+    abstract TeslaFactory getFactory();
+
     public TeslaCar orderCar(
         String carModel
         ){
+            TeslaFactory teslaFactory = getFactory();
         return teslaFactory.buildTeslaCar(carModel);
     }
 
     public static void main(String[] args) {
-        TeslaFactory teslaFactory = new ShanhaiTeslaCarFactory();
-        TeslaOrderManagement teslaOrderManagement = new TeslaOrderManagement(teslaFactory);
+        // TeslaFactory teslaFactory = new ShanhaiTeslaCarFactory();
+
+        
+        TeslaOrderManagement teslaOrderManagement = new ChinaOrderManagement();
         
         // model3
         TeslaCar teslaCar = teslaOrderManagement.orderCar("model3");
