@@ -1,13 +1,33 @@
 ## Getting Started
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
+This is simple java project for practising software design pattern
+It will concern the most popular software pattern design, which catagorised in 3 major groups:
+
+## Creation pattern
+- method factory
+- singleton pattern
+- abstract factory method
+
+## method invocation pattern
+- command pattern
+- method template ( control template or algorithm steps but give the flexibility in implementation for certain step)
+
+## Pattern to changing at runtime
+- strategy pattern
+- method template
+
+## access control pattern
+- proxy pattern
+- Facade
+
+## decoupling pub/sub between system
+- observer patter
 
 ## Folder Structure
 
 The workspace contains two folders by default, where:
 
 - `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
 
 Meanwhile, the compiled output files will be generated in the `bin` folder by default.
 
