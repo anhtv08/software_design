@@ -1,4 +1,4 @@
-package observer_pattern;
+package observer;
 /**
  * observers of the subjects
  * design principle: program to interface

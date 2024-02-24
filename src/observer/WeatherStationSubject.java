@@ -1,4 +1,4 @@
-package observer_pattern;
+package observer;
 /*
  * interface of the subject to be observed
  * 

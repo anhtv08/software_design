@@ -1,4 +1,4 @@
-package observer_pattern;
+package observer;
 import java.util.*;
 
 public class NYWeatherStation implements WeatherStationSubject<String> {

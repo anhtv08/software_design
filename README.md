@@ -21,7 +21,7 @@ It will concern the most popular software pattern design, which catagorised in 3
 - Facade
 
 ## decoupling pub/sub between system
-- observer patter
+- observer pattern
 
 ## Folder Structure
 
