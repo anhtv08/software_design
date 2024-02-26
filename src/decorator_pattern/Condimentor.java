@@ -8,5 +8,5 @@ public abstract class Condimentor {
     //     this.beverage = beverage;
     // }
     abstract double cost();
-    abstract double desc();
+    abstract String desc();
 } 

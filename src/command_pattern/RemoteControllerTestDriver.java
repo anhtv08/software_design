@@ -1,5 +1,11 @@
 package command_pattern;
-
+/*
+ * some example
+ * remote control
+ * job queue, just add task in the queue and task will be executed sometime in the future 
+ * Thread pool
+ * 
+ */
 public class RemoteControllerTestDriver {
     
 
