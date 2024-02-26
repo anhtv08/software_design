@@ -1,6 +1,7 @@
 package decorator_pattern;
 
-public interface Beverage {
-    String desc();
-    double cost();
+public abstract class Beverage {
+    
+    abstract double cost();
+    abstract String desc();
 }

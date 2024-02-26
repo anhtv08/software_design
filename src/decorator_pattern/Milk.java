@@ -6,7 +6,7 @@ public class Milk extends Condimentor {
     String desc;
 
     public Milk(Beverage beverage){
-        desc = beverage.desc() + ", with Milk";
+        // desc = desc() + ", with Milk";
         this.beverage = beverage;
     }
     @Override
@@ -16,7 +16,7 @@ public class Milk extends Condimentor {
 
     @Override
     public String desc() {
-        return desc;
+        return  beverage.desc() +  ", with milk";
     }
     
 }

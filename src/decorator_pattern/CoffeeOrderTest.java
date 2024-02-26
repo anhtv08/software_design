@@ -7,13 +7,11 @@ public class CoffeeOrderTest {
         System.out.println(espresso.desc() +", price :"+ espresso.cost());
         System.out.println(moca.desc() +", price :"+ moca.cost());
 
-        Condimentor milk = new Milk(espresso);
-        Condimentor milk1 = new Milk(moca);
+        Beverage milk = new Milk(espresso);
+        Beverage milk1 = new Milk(moca);
 
         System.out.println(milk.desc() +", price :"+ milk.cost());
         System.out.println(milk1.desc() +", price :"+ milk1.cost());
-        // Condimentor milk = new Milk(espresso);
-        // Espresso espresso = new Espresso("Espresso");
 
     }
 }

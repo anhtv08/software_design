@@ -1,6 +1,6 @@
 package decorator_pattern;
 
-public abstract class Condimentor {
+public abstract class Condimentor extends Beverage {
 
     // Beverage beverage;
 
@@ -8,5 +8,7 @@ public abstract class Condimentor {
     //     this.beverage = beverage;
     // }
     abstract double cost();
-    abstract String desc();
+    String desc(){
+        return "unknown";
+    }
 } 

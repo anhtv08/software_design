@@ -1,6 +1,6 @@
 package decorator_pattern;
 
-public class Moca implements Beverage{
+public class Moca extends Beverage{
 
     String desc;
     public Moca(String desc){
