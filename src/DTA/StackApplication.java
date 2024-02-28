@@ -35,7 +35,6 @@ public class StackApplication {
                     break;
 
                 case ')':
-                    // char lastPush = temp.pop();
                     if (temp.pop() != '(') {
                         rs = false;
                         return rs;
