@@ -25,7 +25,7 @@ public class StackApplication {
                     temp.push(c);
                     break;
 
-                // if closing, then op
+                // if closing, then pop
                 case ']':
 
                     if (temp.pop() != '[') {
