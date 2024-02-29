@@ -1,8 +1,82 @@
 package DTA;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Recursions {
     
     
+    
+    /*
+     * find all anagrams of given string
+     * example:
+     * given string: abcd
+     * abcd,badc,bdac,bdca..
+     * anagram of string with length of n-th length is
+     *  all of ana(n-1) and mix with first char of n-th length string
+     * 
+     */
+
+    // static List<String> anList = new ArrayList<String>();
+    
+    static void printArray(
+        String [] arr
+    )
+
+    {
+        StringBuilder stringBuilder = new StringBuilder();
+        for (String string : arr) {
+            stringBuilder.append(string + ",");
+        }
+        System.out.println("Starting printing Anagram:\n"
+        + 
+        stringBuilder.toString()
+        );
+    }
+    static String[] findAngramStrings(
+        String input
+    )
+    {
+        
+        
+        // base case:
+        if (input.length() ==0 || input == null) {
+            String [] rs =new String[0];
+            return rs;
+        }
+
+        if (input.length() ==1) {
+            String [] rs =new String[1];
+            rs[0] = input;
+            return rs;
+        }
+        
+        List<String> anList = new ArrayList<String>();
+        // find all anagram of n-1 string length
+        String[] anas = findAngramStrings(input.substring(1, input.length()));
+        
+        for (String temp: anas){
+            
+            for (int index = 0; index<  input.length(); index++){
+                String copy = new String (temp);
+                //System.out.println("copy:" + copy);
+                
+                String modifiedAna = insertAtIndex(copy, input.charAt(0), index);
+
+                //System.out.println("modifiedAna:" + modifiedAna);
+                anList.add(
+                    modifiedAna
+                );
+
+            }
+        }
+        return anList.toArray(new String[anList.size()]);
+    }
+    static String insertAtIndex(String input, char c, int index){
+        StringBuilder sb = new StringBuilder(input);
+        sb.insert(index, c);
+        return sb.toString();
+    } 
     /*
      * Context:
      * A stair case having number of steps
@@ -61,26 +135,53 @@ public class Recursions {
     public static void main(String[] args) {
         int input = 1;
         int rs = findNumbersOfSteps(input);
-        System.out.println("stair:" + input + ", result:" + rs );
+        System.out.println("stair:" + input + ", steps:" + rs );
         input = 2;
         rs = findNumbersOfSteps(input);
-        System.out.println("stair:" + input + ", result:" + rs );
+        System.out.println("stair:" + input + ", steps:" + rs );
         input = 3;
         rs = findNumbersOfSteps(input);
-        System.out.println("stair:" + input + ", result:" + rs );
+        System.out.println("stair:" + input + ", steps:" + rs );
         input = 4;
         rs = findNumbersOfSteps(input);
-        System.out.println("stair:" + input + ", result:" + rs );
+        System.out.println("stair:" + input + ", steps:" + rs );
         input = 10;
         rs = findNumbersOfSteps(input);
-        System.out.println("stair:" + input + ", result:" + rs );
+        System.out.println("stair:" + input + ", steps:" + rs );
 
         input = 15;
         rs = findNumbersOfSteps(input);
-        System.out.println("stair:" + input + ", result:" + rs );
+        System.out.println("stair:" + input + ", steps:" + rs );
         
         input = 20;
         rs = findNumbersOfSteps(input);
-        System.out.println("stair:" + input + ", result:" + rs );
+        System.out.println("stair:" + input + ", steps:" + rs );
+
+        // tesing with anagram 
+        String anagramStr = "";
+        String [] anagrams = findAngramStrings(anagramStr);
+        printArray( anagrams);
+
+        anagramStr = "a";
+        anagrams = findAngramStrings(anagramStr);
+        System.out.println("Anagram of:" + anagramStr);
+        printArray( anagrams);
+
+
+        anagramStr = "abc";
+        anagrams = findAngramStrings(anagramStr);
+        System.out.println("Anagram of:" + anagramStr);
+        printArray( anagrams);
+
+        anagramStr = "abcd";
+        anagrams = findAngramStrings(anagramStr);
+        System.out.println("Anagram of:" + anagramStr);
+        printArray( anagrams);
+
+        anagramStr = "abcde";
+        anagrams = findAngramStrings(anagramStr);
+        System.out.println("Anagram of:" + anagramStr);
+        printArray( anagrams);
+
     }
 }
