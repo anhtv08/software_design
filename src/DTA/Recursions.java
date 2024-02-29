@@ -58,10 +58,10 @@ public class Recursions {
         for (String temp: anas){
             
             for (int index = 0; index<  input.length(); index++){
-                String copy = new String (temp);
+                // String copy = new String (temp);
                 //System.out.println("copy:" + copy);
                 
-                String modifiedAna = insertAtIndex(copy, input.charAt(0), index);
+                String modifiedAna = insertAtIndex(temp, input.charAt(0), index);
 
                 //System.out.println("modifiedAna:" + modifiedAna);
                 anList.add(
