@@ -121,7 +121,7 @@ public class Recursions {
             return res;
         }
         /*
-         * to climb step n-th, a person can
+         * to climb stair n-th, a person can
          * take 1 step from n-1 (th) stair
          * take 2 steps from n-2 (th) stair
          * take 3 step from n-3 (th) stair
