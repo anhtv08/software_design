@@ -6,6 +6,32 @@ import java.util.List;
 public class Recursions {
     
     
+
+    /*
+     * shortest number of path to go from top left of retangle with size x, y
+     * is shortest of path of (x, y-1) + (x-1, y)
+     * base case:
+     * if x =1, y=1 return 2
+     * x = 0, y = 0 return 0
+     * x =1 , y =0 return 1
+     * x =0 , y =1 return 1
+     * x<=0, y<=0 return 0
+     * 
+     */
+    static int findShortestNumbersOfPaths (
+        int x,
+        int y
+
+    ){
+        int res = 0;
+
+        // base case:
+        if(x<0 || y< 0) return 0;
+        if(x ==0 && y == 1) return 1;
+        if(x ==1 && y == 0) return 1;
+        res = findShortestNumbersOfPaths(x-1, y) + findShortestNumbersOfPaths(x, y-1);
+        return res;
+    }
     
     /*
      * find all anagrams of given string
@@ -182,6 +208,37 @@ public class Recursions {
         anagrams = findAngramStrings(anagramStr);
         System.out.println("Anagram of:" + anagramStr);
         printArray( anagrams);
+        int x =0;
+        int y =0;
+        int res =findShortestNumbersOfPaths(x,y);
+        System.out.println("number of shortest path: x:" +x + ", y:" +y +" is:" + res);
 
+        x =0;
+        y =1;
+        res =findShortestNumbersOfPaths(x,y);
+        System.out.println("number of shortest path: x:" +x + ", y:" +y +" is:" + res);
+
+        x =1;
+        y =1;
+        res =findShortestNumbersOfPaths(x,y);
+        System.out.println("number of shortest path: x:" +x + ", y:" +y +" is:" + res);
+
+        x =1;
+        y =2;
+        res =findShortestNumbersOfPaths(x,y);
+        System.out.println("number of shortest path: x:" +x + ", y:" +y +" is:" + res);
+
+        x =2;
+        y =2;
+        res =findShortestNumbersOfPaths(x,y);
+        System.out.println("number of shortest path: x:" +x + ", y:" +y +" is:" + res);
+
+        x =5;
+        y =10;
+        res =findShortestNumbersOfPaths(x,y);
+        System.out.println("number of shortest path: x:" +x + ", y:" +y +" is:" + res);
+
+
+        
     }
 }
