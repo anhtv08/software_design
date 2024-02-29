@@ -1,7 +1,9 @@
 package DTA;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class Recursions {
     
@@ -15,7 +17,7 @@ public class Recursions {
      * x = 0, y = 0 return 0
      * x =1 , y =0 return 1
      * x =0 , y =1 return 1
-     * x<=0, y<=0 return 0
+     * x<0, y<0 return 0
      * 
      */
     static int findShortestNumbersOfPaths (
@@ -32,6 +34,38 @@ public class Recursions {
         res = findShortestNumbersOfPaths(x-1, y) + findShortestNumbersOfPaths(x, y-1);
         return res;
     }
+    /*
+     * 
+     * using memorior to improve incursion
+     * using memoroir to caching the already computation
+     */
+    static int findShortestNumbersOfPathsWithMemo (
+        int x,
+        int y,
+        Map<String, Integer> m
+
+    ){
+        int res = 0;
+        // base case:
+        if(x<0 || y< 0) return 0;
+        if(x ==0 && y == 1) return 1;
+        if(x ==1 && y == 0) return 1;
+        String key = x + "_" + y;
+
+        if(m.containsKey(key)){
+            System.out.println("reused conputation:" + key);
+            res = m.get(key);
+            return res;
+            
+        }else{
+            System.out.println("recursion conputation:" + key);
+            res = findShortestNumbersOfPathsWithMemo(x-1, y,m) + findShortestNumbersOfPathsWithMemo(x, y-1,m);  
+            m.put(key, res);
+        }
+        
+        return res;
+    }
+
     
     /*
      * find all anagrams of given string
@@ -159,86 +193,95 @@ public class Recursions {
 
     }
     public static void main(String[] args) {
-        int input = 1;
-        int rs = findNumbersOfSteps(input);
-        System.out.println("stair:" + input + ", steps:" + rs );
-        input = 2;
-        rs = findNumbersOfSteps(input);
-        System.out.println("stair:" + input + ", steps:" + rs );
-        input = 3;
-        rs = findNumbersOfSteps(input);
-        System.out.println("stair:" + input + ", steps:" + rs );
-        input = 4;
-        rs = findNumbersOfSteps(input);
-        System.out.println("stair:" + input + ", steps:" + rs );
-        input = 10;
-        rs = findNumbersOfSteps(input);
-        System.out.println("stair:" + input + ", steps:" + rs );
+        // int input = 1;
+        // int rs = findNumbersOfSteps(input);
+        // System.out.println("stair:" + input + ", steps:" + rs );
+        // input = 2;
+        // rs = findNumbersOfSteps(input);
+        // System.out.println("stair:" + input + ", steps:" + rs );
+        // input = 3;
+        // rs = findNumbersOfSteps(input);
+        // System.out.println("stair:" + input + ", steps:" + rs );
+        // input = 4;
+        // rs = findNumbersOfSteps(input);
+        // System.out.println("stair:" + input + ", steps:" + rs );
+        // input = 10;
+        // rs = findNumbersOfSteps(input);
+        // System.out.println("stair:" + input + ", steps:" + rs );
 
-        input = 15;
-        rs = findNumbersOfSteps(input);
-        System.out.println("stair:" + input + ", steps:" + rs );
+        // input = 15;
+        // rs = findNumbersOfSteps(input);
+        // System.out.println("stair:" + input + ", steps:" + rs );
         
-        input = 20;
-        rs = findNumbersOfSteps(input);
-        System.out.println("stair:" + input + ", steps:" + rs );
+        // input = 20;
+        // rs = findNumbersOfSteps(input);
+        // System.out.println("stair:" + input + ", steps:" + rs );
 
-        // tesing with anagram 
-        String anagramStr = "";
-        String [] anagrams = findAngramStrings(anagramStr);
-        printArray( anagrams);
+        // // tesing with anagram 
+        // String anagramStr = "";
+        // String [] anagrams = findAngramStrings(anagramStr);
+        // printArray( anagrams);
 
-        anagramStr = "a";
-        anagrams = findAngramStrings(anagramStr);
-        System.out.println("Anagram of:" + anagramStr);
-        printArray( anagrams);
+        // anagramStr = "a";
+        // anagrams = findAngramStrings(anagramStr);
+        // System.out.println("Anagram of:" + anagramStr);
+        // printArray( anagrams);
 
 
-        anagramStr = "abc";
-        anagrams = findAngramStrings(anagramStr);
-        System.out.println("Anagram of:" + anagramStr);
-        printArray( anagrams);
+        // anagramStr = "abc";
+        // anagrams = findAngramStrings(anagramStr);
+        // System.out.println("Anagram of:" + anagramStr);
+        // printArray( anagrams);
 
-        anagramStr = "abcd";
-        anagrams = findAngramStrings(anagramStr);
-        System.out.println("Anagram of:" + anagramStr);
-        printArray( anagrams);
+        // anagramStr = "abcd";
+        // anagrams = findAngramStrings(anagramStr);
+        // System.out.println("Anagram of:" + anagramStr);
+        // printArray( anagrams);
 
-        anagramStr = "abcde";
-        anagrams = findAngramStrings(anagramStr);
-        System.out.println("Anagram of:" + anagramStr);
-        printArray( anagrams);
-        int x =0;
-        int y =0;
-        int res =findShortestNumbersOfPaths(x,y);
+        // anagramStr = "abcde";
+        // anagrams = findAngramStrings(anagramStr);
+        // System.out.println("Anagram of:" + anagramStr);
+        // printArray( anagrams);
+        // int x =0;
+        // int y =0;
+        // int res =findShortestNumbersOfPaths(x,y);
+        // System.out.println("number of shortest path: x:" +x + ", y:" +y +" is:" + res);
+
+        // x =0;
+        // y =1;
+        // res =findShortestNumbersOfPaths(x,y);
+        // System.out.println("number of shortest path: x:" +x + ", y:" +y +" is:" + res);
+
+        // x =1;
+        // y =1;
+        // res =findShortestNumbersOfPaths(x,y);
+        // System.out.println("number of shortest path: x:" +x + ", y:" +y +" is:" + res);
+
+        // x =1;
+        // y =2;
+        // res =findShortestNumbersOfPaths(x,y);
+        // System.out.println("number of shortest path: x:" +x + ", y:" +y +" is:" + res);
+
+        // x =2;
+        // y =2;
+        // res =findShortestNumbersOfPaths(x,y);
+        // System.out.println("number of shortest path: x:" +x + ", y:" +y +" is:" + res);
+
+        // x =5;
+        // y =10;
+        // res =findShortestNumbersOfPaths(x,y);
+        // System.out.println("number of shortest path: x:" +x + ", y:" +y +" is:" + res);
+
+        // x = 10;
+        // y = 10;
+        // res =findShortestNumbersOfPaths(x,y);
+        // System.out.println("number of shortest path: x:" +x + ", y:" +y +" is:" + res);
+
+        int x = 5;
+        int y = 5;
+        Map<String, Integer> m = new HashMap<>();
+        int res =findShortestNumbersOfPathsWithMemo(x,y,m);
         System.out.println("number of shortest path: x:" +x + ", y:" +y +" is:" + res);
-
-        x =0;
-        y =1;
-        res =findShortestNumbersOfPaths(x,y);
-        System.out.println("number of shortest path: x:" +x + ", y:" +y +" is:" + res);
-
-        x =1;
-        y =1;
-        res =findShortestNumbersOfPaths(x,y);
-        System.out.println("number of shortest path: x:" +x + ", y:" +y +" is:" + res);
-
-        x =1;
-        y =2;
-        res =findShortestNumbersOfPaths(x,y);
-        System.out.println("number of shortest path: x:" +x + ", y:" +y +" is:" + res);
-
-        x =2;
-        y =2;
-        res =findShortestNumbersOfPaths(x,y);
-        System.out.println("number of shortest path: x:" +x + ", y:" +y +" is:" + res);
-
-        x =5;
-        y =10;
-        res =findShortestNumbersOfPaths(x,y);
-        System.out.println("number of shortest path: x:" +x + ", y:" +y +" is:" + res);
-
-
         
     }
 }
