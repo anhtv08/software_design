@@ -18,13 +18,13 @@ public class Sortation {
         }
         if(left>= right) return;
 
-        int povitIndex = pivotingPartition(arr,left,right);
+        int pivotIndex = pivotingPartition(arr,left,right);
         
         // sort left
-        sort(arr, left, povitIndex -1);
+        sort(arr, left, pivotIndex -1);
 
         // sort right
-        sort(arr, povitIndex+1, right);
+        sort(arr, pivotIndex+1, right);
     }
 
     static int pivotingPartition(int[] arr,int left, int right) {
