@@ -2,8 +2,9 @@ package DTA;
 
 import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.LinkedList;
 import java.util.List;
-
+import java.util.Queue;
 import java.util.Set;
 
 public class Graph {
@@ -12,6 +13,27 @@ public class Graph {
     boolean dfs(int searchValue){
         // new HashSet<Integer>();
         return dfs(vertex, searchValue, new HashSet<Integer>()) ==null? false: true;
+    }
+
+    void bfs(GraphNode vertex){
+        bfs(vertex, new HashSet<>());
+    }
+
+    void bfs(GraphNode vertex, Set<Integer> visitedNode){
+        Queue<GraphNode> queue = new LinkedList<>();
+        visitedNode.add(vertex.data);
+        queue.add(vertex);
+
+        while (!queue.isEmpty()) {
+            GraphNode vGraphNode = queue.poll();
+            System.out.println("visiting:" + vGraphNode.data);
+            for (GraphNode edge : vGraphNode.edges) {
+                if (!visitedNode.contains(edge.data)) {
+                    visitedNode.add(edge.data);
+                    queue.add(edge);
+                }
+            }
+        }
     }
 
     GraphNode dfs(GraphNode vertex, int searchValue, Set<Integer> visitedNode){
@@ -61,6 +83,7 @@ public class Graph {
 
         searchValue = 1;
         System.out.println("search value :" + searchValue+ ",:"  +graph.dfs(searchValue));   
+        graph.bfs(graphNode);
     }
 
     
