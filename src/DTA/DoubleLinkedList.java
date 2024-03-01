@@ -28,10 +28,13 @@ public class DoubleLinkedList {
 
     public DoubleLinkedListNode removeLast(){
         if(size==0) return null;
+        DoubleLinkedListNode temp = tail;
         if (size ==1){
             head = tail = null;
+            size--;
+            return temp;
         }        
-        DoubleLinkedListNode temp = tail;
+        temp = tail;
         tail = tail.pre;
         tail.next.pre = null;
         tail.next = null; 
@@ -63,6 +66,9 @@ public class DoubleLinkedList {
         System.out.println("size:" + dLinkedList.size);
         DoubleLinkedListNode doubleLinkedListNode = dLinkedList.removeLast();
         System.out.println(doubleLinkedListNode.data);
+        System.out.println("size:" + dLinkedList.size);
+        dLinkedList.removeLast();
+        dLinkedList.removeLast();
         System.out.println("size:" + dLinkedList.size);
     }
 }
