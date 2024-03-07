@@ -13,6 +13,8 @@ public class GreedyAlg {
     public static int findSecondLargest(    
         int [] values
     ){
+        
+        // throw runtime exceptione for invalid input  
         if(values.length<2) throw new IllegalArgumentException("Invalid Input");
         int max = Math.max(values[0], values[1]);
         int secondMax = Math.min(values[0], values[1]);
